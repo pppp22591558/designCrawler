@@ -1,0 +1,39 @@
+.list-container{
+  padding: 0 15px 0 15px;
+  background-color: #F9F9F9;
+  ul.flex-item-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-left: 0;
+    li.item{
+      list-style-type: none;
+      display: inline;
+      padding: 10px;
+      border: 1px solid #f0f0f0;
+      margin: 10px;
+      background: white;
+    }
+    img{
+      margin-bottom: 5px;
+    }
+  }
+}
+
+
+.left-section{
+  position: fixed;
+  height: 100%;
+  width: 70%;
+  overflow: auto;
+}
+
+.right-section{
+  width: 30%;
+  height: 100%;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+  border-left: 1px solid #F0F0F0;
+}
