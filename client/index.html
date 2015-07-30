@@ -3,5 +3,12 @@
     <title></title>
   </head>
   <body ng-app="designCrawler">
+    <div class="spinner-area">
+      <div class="spinner" ng-show="showSpinner">
+        <div class="dot1"></div>
+        <div class="dot2"></div>
+      </div>
+      <h1>loading...</h1>
+    </div>
     <div ui-view></div>
   </body>

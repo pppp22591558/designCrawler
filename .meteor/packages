@@ -20,3 +20,4 @@ meteorhacks:npm
 
 npm-container
 http
+angular:angular-cookies
