@@ -45,6 +45,20 @@ Meteor.startup( ()->
             return
           )
       cndesign = cn.wait()
+
+    getZccolTest: () ->
+      zcool = new future()
+      x('http://www.zcool.com.cn/works/17!0!!0!0!200!1!1!!!/', 'ul li', [
+        image: 'img@src'
+        ]).paginate('.pageNext')
+          .limit(5)((err, obj) ->
+            if error
+              zcool.throw(err)
+              return
+            zcool.return(obj)
+            return
+          )
+      z = zcool.wait()
   )
   return
 )

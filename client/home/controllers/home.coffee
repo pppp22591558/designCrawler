@@ -9,5 +9,8 @@ angular.module 'designCrawler'
       home.articleList = result
       $rootScope.showSpinner = false
     )
+    Scrapper.zcool().then((result) ->
+      home.zcoolList = result
+    )
     return
   ]
