@@ -19,5 +19,13 @@ angular.module 'designCrawler'
   .directive 'picsSource', ->
     restrict: 'E'
     templateUrl: 'client/home/views/pics_sources.ng.html'
+  .directive 'sourceTag', ->
+    restrict: 'A'
+    link: (scope, elem, attrs) ->
+      elem.on('click', () ->
+        scope.source = attrs.source
+        return
+      )
+      return
     scope:
       source: '='

@@ -48,17 +48,18 @@ Meteor.startup( ()->
 
     getZccolTest: () ->
       zcool = new future()
-      x('http://www.zcool.com.cn/works/17!0!!0!0!200!1!1!!!/', 'ul li', [
-        image: 'img@src'
-        ]).paginate('.pageNext')
+      x('http://www.zcool.com.cn/works/17!0!!0!0!200!1!1!!!/', 'ul.layout', [
+        image: 'li a img@src'
+        ]).paginate('.pageNext@href')
           .limit(5)((err, obj) ->
             if error
               zcool.throw(err)
               return
             zcool.return(obj)
+            console.log obj
             return
           )
-      z = zcool.wait()
+      zcoolImg = zcool.wait()
   )
   return
 )
