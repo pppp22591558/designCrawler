@@ -2,6 +2,7 @@ angular.module 'designCrawler'
   .config [
     '$stateProvider', '$urlRouterProvider', '$locationProvider',
     ($stateProvider, $urlRouterProvider, $locationProvider) ->
+      $locationProvider.html5Mode(true)
       $stateProvider
         .state 'otherwise',
           url: '*path'
