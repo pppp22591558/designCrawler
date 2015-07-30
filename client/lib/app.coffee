@@ -1,1 +1,1 @@
-angular.module 'designCrawler', ['angular-meteor', 'ui.router', 'ngCookies']
+angular.module 'designCrawler', ['angular-meteor', 'ui.router', 'ngCookies', 'ngAnimate']

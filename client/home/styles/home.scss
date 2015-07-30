@@ -1,12 +1,48 @@
+//top bar
+.top-nav{
+  height: 70px;
+  position: absolute;
+  width: 100%;
+  background-color: white;
+}
+
+//source list
+ul.source-list{
+  position: absolute;
+  margin-left: 20px;
+  font-size: 16px;
+  top:30px;
+  li{
+    display: inline;
+    font-size: 16px;
+    margin-left: 20px;
+    padding: 10px;
+    cursor: pointer;
+    &.selected{
+      background-color: #2ECC71;
+      border-radius: 10px;
+      color: white;
+    }
+  }
+}
+
 //graphic list container
 .list-container{
   padding: 0 15px 0 15px;
-  background-color: #F9F9F9;
+  background: #ECF0F1;
   ul.flex-item-list{
+    border-top: 1px solid gainsboro;
+    top: 80px;
+    padding-top: 30px;
     display: flex;
+    display: -webkit-flex;
     flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
     justify-content: center;
+    -webkit-justify-content: center;
     padding-left: 0;
+    position: relative;
+    top: 80px;
     li.item{
       list-style-type: none;
       display: inline;
@@ -32,6 +68,7 @@
   height: 100%;
   width: 70%;
   overflow: auto;
+  top:70px;
 
   //hover effect on img
   img.shine{
@@ -44,10 +81,15 @@
   width: 30%;
   height: 100%;
   position: fixed;
+  top: 70px;
   right: 0;
   bottom: 0;
   overflow: auto;
   border-left: 1px solid #F0F0F0;
+
+  ul{
+    background-color: white;
+  }
 
   .article-item{
     font-size: 18px;
@@ -62,6 +104,10 @@
       -moz-transition: all linear 0.2s;
       -ms-transition: all linear 0.2s;
       -o-transition: all linear 0.2s;
+
+      h4{
+        font-size: 16px;
+      }
 
       &:hover{
         text-decoration: none;

@@ -22,7 +22,7 @@ Meteor.startup( ()->
       x('https://dribbble.com', 'li.group', [
         image: '.dribbble-img [data-src]@data-src'
         ]).paginate('.next_page@href')
-          .limit(1)((err, obj) ->
+          .limit(5)((err, obj) ->
             if err
               dribbble.throw(err)
               return
@@ -37,7 +37,7 @@ Meteor.startup( ()->
         title: '.list_title a',
         link: '.list_title a@href'
         ]).paginate('bigPage.vm a@href')
-          .limit(1)((err, obj) ->
+          .limit(5)((err, obj) ->
             if err
               cn.throw(err)
               return

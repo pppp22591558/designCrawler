@@ -1,7 +1,13 @@
 angular.module 'designCrawler'
-  .controller 'HomeCtrl', [ '$meteor', 'dribblePics', 'cnDesinArticles', ($meteor, dribblePics, cnDesinArticles) ->
+  .controller 'HomeCtrl', [ '$meteor', 'Scrapper', '$rootScope', ($meteor, Scrapper, $rootScope) ->
     home = this
-    home.itemList = dribblePics
-    home.articleList = cnDesinArticles
+    Scrapper.dribble().then((result) ->
+      home.itemList = result
+      $rootScope.showSpinner = false
+    )
+    Scrapper.cnDesign().then((result) ->
+      home.articleList = result
+      $rootScope.showSpinner = false
+    )
     return
   ]

@@ -4,12 +4,15 @@
     <base href="/">
   </head>
   <body ng-app="designCrawler">
-    <div class="spinner-area">
-      <div class="spinner" ng-show="showSpinner">
+    <div class="spinner-area" ng-show="showSpinner">
+      <div class="spinner">
         <div class="dot1"></div>
         <div class="dot2"></div>
       </div>
       <h1>loading...</h1>
     </div>
-    <div ui-view></div>
+    <ul class="top-nav list-unstyled" ng-show="!showSpinner">
+      <li></li>
+    </ul>
+    <div ui-view ng-show="!showSpinner"></div>
   </body>

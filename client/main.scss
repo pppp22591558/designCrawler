@@ -1,5 +1,13 @@
 @import '.meteor/local/build/programs/server/assets/packages/reywood_bootstrap3-sass/bootstrap';
 
+body{
+  background-color: white;
+}
+
+body, html, h1, h2, h3, h4, h5, p {
+  color: #2C3E50;
+}
+
 .spinner-area{
   width: 100px;
   height: 100px;
@@ -12,8 +20,9 @@
 
   h1{
     font-size: 25px;
-    color: #D1F6FD;
+    color: gray;
     margin-top: 20px;
+    opacity: 0.5;
   }
 }
 
@@ -33,7 +42,8 @@
   display: inline-block;
   position: absolute;
   top: 0;
-  background-color: #D1F6FD;
+  background-color: gray;
+  opacity: 0.5;
   border-radius: 100%;
 
   -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
