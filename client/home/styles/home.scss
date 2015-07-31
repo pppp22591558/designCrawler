@@ -41,7 +41,9 @@
   transform: translateZ(0);
   margin-top: -20px;
   z-index: 1000;
-  transform: scale(0.3)
+  transform: scale(0.3);
+  -webkit-transform: scale(0.3);
+  -ms-transform: scale(0.3)
 }
 .loader:after {
   width: 5.2em;

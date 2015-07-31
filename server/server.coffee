@@ -23,7 +23,7 @@ Meteor.startup( ()->
 
     getAwwwardsTest: () ->
       awww = new future()
-      x('http://www.awwwards.com/awards-of-the-day/', 'ul.list-item li', [
+      x('http://www.awwwards.com/awards-of-the-day/', ' #content ul.list-item li', [
         image: 'a:first-child img@src'
         title: 'h3.bold a'
         link: 'h3.bold a@href'
