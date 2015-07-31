@@ -1,5 +1,5 @@
 <div class="list-container">
-  <ul class="flex-item-list">
-    <li ng-repeat="item in items" class="item"> <img ng-src="{{item.image}}" hover-shine/></li>
+  <ul ng-repeat="itemArray in items" class="flex-item-list">
+    <li ng-repeat="item in itemArray" class="item"> <a ng-href="{{item.link}}" target="_blank"><img ng-src="{{item.image}}" hover-shine/></a></li>
   </ul>
 </div>

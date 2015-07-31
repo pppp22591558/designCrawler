@@ -5,13 +5,18 @@ angular.module 'designCrawler'
         (result) ->
           return result
       )
-    cnDesign: () ->
-      $meteor.call('getCndesignTest').then(
+    awww: () ->
+      $meteor.call('getAwwwardsTest').then(
         (result) ->
           return result
       )
     zcool: () ->
-      $meteor.call('getZccolTest').then(
+      $meteor.call('getZcoolTest').then(
+        (result) ->
+          return result
+      )
+    cssWinner: () ->
+      $meteor.call('getCssWinner').then(
         (result) ->
           return result
       )

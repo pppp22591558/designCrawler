@@ -1,9 +1,15 @@
+<div class="loading-spinner" ng-show="home.loading">
+  <div class="loader">Loading...</div>
+  <h5 class="syncing">Syncing</h5>
+</div>
+<h3 class="inspiration" ng-show="!home.loading">灵感</h3>
 <section class="left-section">
-  <pics-source source="home.source"></pics-source>
+  <!--<pics-source source="home.source"></pics-source>-->
   <graphic-list items="home.itemList"></graphic-list>
-  <graphic-list items="home.zcoolList"></graphic-list>
 </section>
 
+<!--
 <section class="right-section">
   <article-list articles="home.articleList"></article-list>
 </section>
+-->

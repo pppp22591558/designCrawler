@@ -5,24 +5,14 @@ Meteor.startup( ()->
   future = Npm.require('fibers/future')
   x = xray()
   Meteor.methods(
-    ###
-    getZcoolTest: () ->
-      result = Meteor.http.get("http://www.zcool.com.cn/works/17!0!!0!0!200!1!1!!!/")
-      $ = cheerio.load(result.content)
-      imgSrc = []
-      $('ul > li > a > img').each( (i, elem) ->
-        imgSrc[i] = $(this).attr('src')
-        return
-      )
-      imgSrc.join ', '
-      return imgSrc
-      ###
     getDribbleTest: () ->
       dribbble = new future()
       x('https://dribbble.com', 'li.group', [
         image: '.dribbble-img [data-src]@data-src'
+        title: '.dribbble-img strong'
+        link: 'a.dribbble-link@href'
         ]).paginate('.next_page@href')
-          .limit(5)((err, obj) ->
+          .limit(10)((err, obj) ->
             if err
               dribbble.throw(err)
               return
@@ -31,35 +21,54 @@ Meteor.startup( ()->
           )
       dribbleImg = dribbble.wait()
 
-    getCndesignTest: () ->
-      cn = new future()
-      x('http://www.cndesign.com/list_11.html', '.list_detail', [
-        title: '.list_title a',
-        link: '.list_title a@href'
-        ]).paginate('bigPage.vm a@href')
-          .limit(5)((err, obj) ->
+    getAwwwardsTest: () ->
+      awww = new future()
+      x('http://www.awwwards.com/awards-of-the-day/', 'ul.list-item li', [
+        image: 'a:first-child img@src'
+        title: 'h3.bold a'
+        link: 'h3.bold a@href'
+        ]).paginate('a.next@href')
+          .limit(10)((err, obj) ->
             if err
-              cn.throw(err)
+              awww.throw(err)
               return
-            cn.return(obj)
+            awww.return(obj)
             return
           )
-      cndesign = cn.wait()
+      awwwImg = awww.wait()
 
-    getZccolTest: () ->
+    getZcoolTest: () ->
       zcool = new future()
-      x('http://www.zcool.com.cn/works/17!0!!0!0!200!1!1!!!/', 'ul.layout', [
-        image: 'li a img@src'
+      x('http://www.zcool.com.cn/works/17!0!!0!0!200!1!1!!!', 'ul.layout li', [
+        image: 'a:first-child img@src'
+        title: 'a:first-child img@alt'
+        link: '.camLiTitleC a@href'
         ]).paginate('.pageNext@href')
-          .limit(5)((err, obj) ->
-            if error
+          .limit(10)((err, obj) ->
+            if err
               zcool.throw(err)
               return
             zcool.return(obj)
-            console.log obj
             return
           )
       zcoolImg = zcool.wait()
+
+    getCssWinner: () ->
+      cssWinner = new future()
+      x('http://www.csswinner.com/', '.middleWrappperWinners .winnerList .templateWinner', [
+        image: 'img@src'
+        title: 'img@alt'
+        link: 'h3 a@href'
+        ]).paginate('.pageNext@href')
+          .limit(10)((err, obj) ->
+            if err
+              cssWinner.throw(err)
+              return
+            cssWinner.return(obj)
+            return
+          )
+      cssWinnerImg = cssWinner.wait()
+
   )
   return
 )
