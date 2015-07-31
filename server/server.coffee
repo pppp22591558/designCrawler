@@ -37,29 +37,46 @@ Meteor.startup( ()->
           )
       awwwImg = awww.wait()
 
-    getZcoolTest: () ->
-      zcool = new future()
-      x('http://www.zcool.com.cn/works/17!0!!0!0!200!1!1!!!', 'ul.layout li', [
+    getZcoolGUITest: () ->
+      zcoolg = new future()
+      x('http://www.zcool.com.cn/works/17!0!!2!1!0!1!1!!!/', 'ul.layout li', [
         image: 'a:first-child img@src'
         title: 'a:first-child img@alt'
         link: '.camLiTitleC a@href'
         ]).paginate('.pageNext@href')
           .limit(10)((err, obj) ->
             if err
-              zcool.throw(err)
+              zcoolg.throw(err)
               return
-            zcool.return(obj)
+            zcoolg.return(obj)
             return
           )
-      zcoolImg = zcool.wait()
+      zcoolgImg = zcoolg.wait()
 
-    getCssWinner: () ->
+    getZcoolWebTest: () ->
+      zcoolw = new future()
+      x('http://www.zcool.com.cn/works/607!0!!2!1!0!1!1!!!/', 'ul.layout li', [
+        image: 'a:first-child img@src'
+        title: 'a:first-child img@alt'
+        link: '.camLiTitleC a@href'
+        ]).paginate('.pageNext@href')
+          .limit(10)((err, obj) ->
+            if err
+              zcoolw.throw(err)
+              return
+            zcoolw.return(obj)
+            return
+          )
+      zcoolwImg = zcoolw.wait()
+
+    getCssWinner: (n) ->
       cssWinner = new future()
-      x('http://www.csswinner.com/', '.middleWrappperWinners .winnerList .templateWinner', [
+      x('http://www.csswinner.com/winners/1', '.winnerList .monWinner', [
         image: 'img@src'
         title: 'img@alt'
         link: 'h3 a@href'
-        ]).paginate('.pageNext@href')
+        next: '.paging a.next@href'
+        ]).paginate('.paging a.next@href')
           .limit(10)((err, obj) ->
             if err
               cssWinner.throw(err)

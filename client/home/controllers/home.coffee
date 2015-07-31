@@ -10,7 +10,10 @@ angular.module 'designCrawler'
     Scrapper.awww().then((result) ->
       home.itemList.push(result)
     )
-    Scrapper.zcool().then((result) ->
+    Scrapper.zcoolGUI().then((result) ->
+      home.itemList.push(result)
+    )
+    Scrapper.zcoolWeb().then((result) ->
       home.itemList.push(result)
     )
     Scrapper.cssWinner().then((result) ->

@@ -23,3 +23,5 @@ angular.module 'designCrawler'
       source: '='
   .directive 'sourceTag', ->
     restrict: 'A'
+  .directive 'transitionToTop', ->
+    restrict: 'A'

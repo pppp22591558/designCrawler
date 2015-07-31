@@ -10,8 +10,13 @@ angular.module 'designCrawler'
         (result) ->
           return result
       )
-    zcool: () ->
-      $meteor.call('getZcoolTest').then(
+    zcoolGUI: () ->
+      $meteor.call('getZcoolGUITest').then(
+        (result) ->
+          return result
+      )
+    zcoolWeb: () ->
+      $meteor.call('getZcoolWebTest').then(
         (result) ->
           return result
       )
